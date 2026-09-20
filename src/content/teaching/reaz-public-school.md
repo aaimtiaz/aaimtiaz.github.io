@@ -3,7 +3,7 @@ title: Assistant Teacher of Science, Reaz Public School
 date: 2024-04-19
 dateNote: April 2024 – February 2025
 institution: Reaz Public School, Narayanganj
-role: Assistant Teacher — Science (full-time)
+role: Assistant Teacher — Science (full-time, permanent)
 term: Apr 2024 – Feb 2025
 lang: en
 excerpt: 292 days teaching school science, and running a stargazing night for the students.

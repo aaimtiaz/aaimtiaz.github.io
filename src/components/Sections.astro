@@ -73,7 +73,7 @@ function kindOf(source: string, data: any): string | undefined {
 
 const research = await getPublished('research');
 const papers = research.filter((r: any) => r.data.publication?.doi);
-const ongoing = research.filter((r: any) => r.data.status === 'ongoing').length;
+const active = research.filter((r: any) => r.data.status !== 'published').length;
 
 /** Markdown for a prose section. Trusted input: it comes from the repository,
  *  written by the site's own owner through an authenticated editor. */
@@ -121,7 +121,7 @@ const at = (i: number, field: string) => `${file}#layout.${i}.${field}`;
               </>
             )}
             <dt>Currently</dt>
-            <dd>{ongoing} active projects at CASSA</dd>
+            <dd>{active} active research projects</dd>
           </dl>
         </aside>
       </section>

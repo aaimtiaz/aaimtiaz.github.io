@@ -9,7 +9,8 @@ import { getPublished } from '../lib/content';
 const research = (await getPublished('research')).sort(
   (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0),
 );
-const papers = research.filter((r) => r.data.publication);
+const papers = research.filter((r) => r.data.status === 'published');
+const activeProjects = research.filter((r) => r.data.status !== 'published');
 
 const ICONS: Record<string, 'orcid' | 'scholar' | 'github' | 'external'> = {
   orcid: 'orcid', scholar: 'scholar', github: 'github',
@@ -70,7 +71,7 @@ const experience = [
     org: 'CASSA, Independent University, Bangladesh',
     when: 'Nov 2025 – present',
     detail:
-      'Sparkler and CANUCS photometry and SED fitting with Dr. Lamiya Mowla; building the image reduction and photometry pipeline for CASSA’s first optical observatory with Dr. Syed Ashraf Uddin.',
+      'Collaborating on a Sparkler project with a PhD student from CU Boulder under Dr. Lamiya Mowla; building the image reduction and photometry pipeline for CASSA’s first optical observatory with Dr. Syed Ashraf Uddin.',
   },
   {
     role: 'Project Facilitator and Consultant',
@@ -79,10 +80,16 @@ const experience = [
     detail:
       'Affordable, eco-friendly astronomy kits tackling STEM inequality in Bangladesh. Consultation on leadership, coordination and direction.',
   },
-  { role: 'Research Intern', org: 'ICTP PWF: Physics for Bangladesh', when: 'Jul – Oct 2025' },
-  { role: 'SOC and Facilitator', org: 'CAM-SUST Summer School on Astrophysics 2025', when: 'Aug – Sep 2025' },
   {
     role: 'Facilitator',
+    org: 'TDMMA Workshop 2026, CASSA-IUB',
+    when: '7–11 Sep 2026',
+    detail: 'Conducted a hands-on session on the CASSA photometric pipeline.',
+  },
+  { role: 'Research Intern', org: 'ICTP PWF: Physics for Bangladesh Online Internships', when: 'Jul – Oct 2025' },
+  { role: 'SOC and Instructor', org: 'CAM-SUST Summer School on Astrophysics 2025', when: 'Aug – Sep 2025' },
+  {
+    role: 'Instructor',
     org: 'Stellar Light & Cosmic Bends: Data-Driven Astronomy Workshop',
     when: '27–28 Jul 2025',
     detail: 'Hands-on session on galaxy–galaxy strong lens modelling.',
@@ -94,13 +101,13 @@ const experience = [
     detail: 'PHY101, PHY102 and PHY103 (lab) — junior undergraduate physics.',
   },
   {
-    role: 'Assistant Teacher — Science',
+    role: 'Assistant Teacher — Science (full-time, permanent)',
     org: 'Reaz Public School, Narayanganj',
     when: 'Apr 2024 – Feb 2025',
     detail: 'Member of the Corporate Social Responsibility team at Epyllion Group, Dhaka.',
   },
   {
-    role: 'Facilitator',
+    role: 'Instructor',
     org: 'AstroCode Intensive, CAM-SUST',
     when: '8–9 Mar 2024',
     detail: 'Hands-on session on astronomical image reduction.',
@@ -111,7 +118,7 @@ const experience = [
 
 const schools = [
   'CASSA Workshop 1: Unclouding the Thousand Eyes of an Array Radio Telescope, 2025',
-  'JWST Data Analysis and Processing Workshop (South East Asia), 2024 — COSPAR & NARIT, Chiang Mai, Thailand (fully funded)',
+  'JWST Data Analysis and Processing Workshop (South East Asia), 2024 — COSPAR & NARIT, Chiang Mai, Thailand (in person)',
   'Astro101: Hands-on Workshop on Optical Astronomy, 2023 — NARIT, Chiang Mai, Thailand (hackathon winner)',
   'Introduction to Computational Astrophysics, 2021 — NUEVACAMP, SPSB, MASLAB',
   'Introduction to the HR Diagram with LCO, 2021 — Maulana Azad National Urdu University, India',
@@ -124,9 +131,17 @@ const schools = [
 ];
 
 const conferences = [
-  'Best Presenter Award, International Conference on Physics 2026 — AGEL0014',
-  'Poster, ESO Santiago, Chile, 2023 — the mass–metallicity relation',
-  'Poster, International Conference of Physical Sciences, SUST, 2022 — the Neptunian Desert',
+  'Best oral presenter, International Conference on Physics 2026 — “Resolved Metallicity and Age Gradients in the Lensed Quiescent Galaxy at z ≈ 1.4”',
+  'Poster, Metal Production and Distribution in a Hierarchical Universe II, ESO Santiago, Chile, 2023 — “Exploring the Mass-Metallicity Relation in Open Clusters inside the Milky Way”',
+  'Poster, International Conference of Physical Sciences, SUST, 2022 — “Stellar Multiplicity-dependent Neptunian Desert Boundary”',
+];
+
+const oralPresentations = [
+  'Image Reduction — offline Study Circle of CAM-SUST, Jan 2024',
+  'Introduction to Stars II — offline Study Circle of CAM-SUST, Mar 2023',
+  'Introduction to Stars I — online Study Circle of CAM-SUST, Oct 2022',
+  'Celestial Coordinate System — online Study Circle of CAM-SUST, Oct 2020',
+  'Detection of Exoplanets — CAM-SUST school programme, Oct 2019',
 ];
 ---
 <Base
@@ -200,6 +215,24 @@ const conferences = [
       </section>
     )}
 
+    {activeProjects.length > 0 && (
+      <section>
+        <h2 class="section-label">Active research projects</h2>
+        <ul class="entries">
+          {activeProjects.map((p) => (
+            <li>
+              <div class="entries__when">{p.data.status === 'in-prep' ? 'In preparation' : 'Ongoing'}</div>
+              <div>
+                <a href={`/research/${p.id}/`}>{p.data.title}</a>
+                {p.data.supervisor && <p class="muted">Supervisor: {p.data.supervisor}</p>}
+                {p.data.excerpt && <p class="entries__detail">{p.data.excerpt}</p>}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
     <section>
       <h2 class="section-label">Experience</h2>
       <ul class="entries">
@@ -234,6 +267,11 @@ const conferences = [
     </section>
 
     <section>
+      <h2 class="section-label">Oral presentations</h2>
+      <ul class="plain">{oralPresentations.map((p) => <li>{p}</li>)}</ul>
+    </section>
+
+    <section>
       <h2 class="section-label">Schools and workshops</h2>
       <ul class="plain">{schools.map((s) => <li>{s}</li>)}</ul>
     </section>
@@ -250,6 +288,8 @@ const conferences = [
           <p class="tools">{tools.research.join(' · ')}</p>
           <h3>Languages</h3>
           <p class="tools">{tools.languages.join(' · ')}</p>
+          <h3>Operating systems</h3>
+          <p class="tools">{tools.operatingSystems.join(' · ')}</p>
           <p class="muted">Bengali (native) · English (IELTS 6.5)</p>
         </div>
       </div>

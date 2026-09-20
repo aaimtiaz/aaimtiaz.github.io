@@ -23,7 +23,7 @@ export const education: Education[] = data.education;
 export const stats: Stat[] = data.stats;
 export const awards: Award[] = data.awards;
 export const telescopes: string[] = data.telescopes;
-export const tools: { research: string[]; languages: string[] } = data.tools;
+export const tools: { research: string[]; languages: string[]; operatingSystems: string[] } = data.tools;
 
 /** Non-empty profile links, ready for `sameAs` and the UI links row. */
 export const profileLinks = Object.entries(site.profiles)

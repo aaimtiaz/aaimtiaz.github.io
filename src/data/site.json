@@ -25,13 +25,13 @@
     {
       "degree": "M.Sc. in Physics",
       "institution": "Shahjalal University of Science and Technology",
-      "year": "2024",
+      "year": "Nov 2024",
       "note": "CGPA 3.56 / 4"
     },
     {
       "degree": "B.Sc. in Physics",
       "institution": "Shahjalal University of Science and Technology",
-      "year": "2022",
+      "year": "Oct 2022",
       "note": "CGPA 3.28 / 4"
     }
   ],
@@ -45,7 +45,7 @@
 
   "awards": [
     {
-      "title": "Best Presenter Award",
+      "title": "Best Oral Presenter",
       "detail": "International Conference on Physics 2026, Bangladesh Physical Society — for AGEL0014",
       "year": "2026"
     },
@@ -59,6 +59,14 @@
       "title": "Hackathon winner, ASTRO101 workshop",
       "detail": "NARIT, Chiang Mai, Thailand",
       "year": "2023"
+    },
+    {
+      "title": "Accomplished Competitor, The University Physics Competition",
+      "year": "2019"
+    },
+    {
+      "title": "Accomplished Competitor, The University Physics Competition",
+      "year": "2018"
     }
   ],
 
@@ -69,7 +77,8 @@
   ],
 
   "tools": {
-    "research": ["Lenstronomy", "Dense Basis", "alf", "photutils", "STARRED", "TOPCAT", "ds9", "APT", "DRAGONS", "JWST pipelines"],
-    "languages": ["Python", "C", "MATLAB", "Mathematica"]
+    "research": ["Mathematica", "GitHub", "Overleaf", "ADQL", "TOPCAT", "APT", "ds9", "DRAGONS", "JWST pipelines", "Lenstronomy", "Dense Basis", "alf", "Prospector"],
+    "languages": ["Python", "C", "MATLAB"],
+    "operatingSystems": ["Windows", "Linux"]
   }
 }

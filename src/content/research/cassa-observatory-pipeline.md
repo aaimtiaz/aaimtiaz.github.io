@@ -4,16 +4,12 @@ date: 2026-04-15
 supervisor: "Dr. Syed Ashraf Uddin"
 status: "ongoing"
 order: 5
-excerpt: "Instrumentation work for CASSA's first optical observatory: automated reduction, seeing measurement, and camera characterisation for transient follow-up."
+excerpt: "Automated image reduction, photometry and atmospheric-seeing pipelines for CASSA's upcoming 0.6 m optical observatory."
 tags: ["instrumentation", "pipelines", "transients", "photometry", "Python"]
 ---
 
-CASSA is building its first optical observatory, aimed at transient phenomena — supernovae in particular. Transient work lives or dies on turnaround, so the reduction cannot be a manual process.
+CASSA is preparing its upcoming 0.6 m optical observatory for first light, with a focus on transient phenomena, especially supernovae.
 
-I am building the automated image reduction and photometry pipeline for it, along with documentation of what it does and how to use it. Two supporting pieces sit alongside the pipeline:
+I designed and developed an automated, Python-based image reduction and photometry pipeline for the observatory. I also prepared a pipeline for atmospheric seeing monitoring using the Differential Image Motion Monitor (DIMM) method with an 8-inch Sky-Watcher telescope on an EQ6-R Pro mount.
 
-**Seeing measurement.** I wrote the Python for Differential Image Motion Monitor (DIMM) estimation using a Sky-Watcher 8" telescope, which will characterise the atmospheric seeing at the observatory site. Knowing the seeing is what turns a raw measurement into a calibrated one.
-
-**Camera characterisation.** Code to measure the detector's behaviour, so that future observational data can be corrected properly rather than approximately.
-
-All of the observatory work is pending on-sky testing and will be refined once real observations start arriving.
+The pipelines are in draft form and ready for testing. They will be refined after testing and the arrival of real observations; completion is expected in December 2026.
